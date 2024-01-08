@@ -84,8 +84,13 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a <= 0 || b <= 0 || c <= 0) return false;
+  if (a !== b && a !== c && b !== c) return false;
+  if (a === b && a + b <= c) return false;
+  if (a === c && a + c <= b) return false;
+  if (b === c && b + c <= a) return false;
+  return true;
 }
 
 /**
@@ -121,8 +126,55 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let result = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    const isLastChar = i === numberStr.length - 1;
+    switch (numberStr[i]) {
+      case '0':
+        result += isLastChar ? 'zero' : 'zero ';
+        break;
+      case '1':
+        result += isLastChar ? 'one' : 'one ';
+        break;
+      case '2':
+        result += isLastChar ? 'two' : 'two ';
+        break;
+      case '3':
+        result += isLastChar ? 'three' : 'three ';
+        break;
+      case '4':
+        result += isLastChar ? 'four' : 'four ';
+        break;
+      case '5':
+        result += isLastChar ? 'five' : 'five ';
+        break;
+      case '6':
+        result += isLastChar ? 'six' : 'six ';
+        break;
+      case '7':
+        result += isLastChar ? 'seven' : 'seven ';
+        break;
+      case '8':
+        result += isLastChar ? 'eight' : 'eight ';
+        break;
+      case '9':
+        result += isLastChar ? 'nine' : 'nine ';
+        break;
+      case '-':
+        result += isLastChar ? 'minus' : 'minus ';
+        break;
+      case '.':
+        result += isLastChar ? 'point' : 'point ';
+        break;
+      case ',':
+        result += isLastChar ? 'point' : 'point ';
+        break;
+      default:
+        result += 'what the char? ';
+    }
+  }
+  return result;
 }
 
 /**
