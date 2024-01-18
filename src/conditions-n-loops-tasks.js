@@ -456,6 +456,7 @@ function shuffleChar(str, iterations) {
       step += result[j];
     }
     result = step;
+    if (result === str) return shuffleChar(str, iterations % i);
   }
   return result;
 }
